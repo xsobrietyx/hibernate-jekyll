@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Philosophy of CentOS
-url: /first_post_example
-file_name: first_post_example
+url: /philosophy_of_centos
+file_name: philosophy_of_centos
 ---
 
 CentOS (Community Enterprise Operating System) began as a community-driven rebuild of Red Hat Enterprise Linux (RHEL). Historically, its core philosophy rested on a few guiding principles:
