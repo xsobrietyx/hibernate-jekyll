@@ -209,5 +209,3 @@ Streaming is often the “safer” way to ship large or unbounded datasets becau
 * Use **server-streaming** for “watch / tail / list as it grows / progress updates.”
 * Use **client-streaming** for “upload / batch ingest / send many measurements.”
 * Use **bidi** for “interactive session” (events + acks, chat, coordination, realtime control).
-
-If you tell me your specific use case (e.g., “recommendations,” “events dedup,” “watch etcd-like changes”), I can map it to the right RPC type and show a proto sketch plus the exact event lifecycle (half-close, cancellation, retry semantics).
