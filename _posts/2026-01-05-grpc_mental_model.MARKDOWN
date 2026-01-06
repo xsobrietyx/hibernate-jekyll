@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "gRPC mental model: When to choose what."
+title: "gRPC mental model: When to choose what"
 url: /grpc_mental_model
 file_name: grpc_mental_model
 ---
