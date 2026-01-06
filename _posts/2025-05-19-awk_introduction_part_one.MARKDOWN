@@ -242,7 +242,7 @@ End of processing
 AWK has many built-in variables that provide information about the current record, field, file, etc.
 
 | Variable | Description |
-|----------|------------|
+| -------- | ----------- |
 | **`NR`** | Number of Records read so far (current line number across all files) |
 | **`FNR`** | File Number of Records (line number in the current file) |
 | **`NF`** | Number of Fields in the current record (line) |
