@@ -57,7 +57,7 @@ plugins:
 #   - vendor/ruby/
 
 # Custom settings
-future: true
+future: false
 
 # Permalinks
 
