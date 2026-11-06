@@ -15,16 +15,29 @@ This guide builds a Neo4j model of the Verkhovna Rada of Ukraine, adds bills and
 
 The examples target **Neo4j 5.26 and Cypher 5**, require no APOC, and use uniqueness constraints available in Community Edition. The `CALL (row)` syntax used for batching requires Neo4j 5.23 or later. See Neo4j's [edition comparison](https://neo4j.com/docs/cypher-manual/5/introduction/cypher-neo4j/) and [subquery scope documentation](https://neo4j.com/docs/cypher-manual/5/subqueries/call-subquery/).
 
+## Downloadable files
+
+Download the sample voting data and the Cypher scripts used in this article:
+
+- <a href="{{ '/assets/rada-neo4j/votes.csv' | relative_url }}" download="votes.csv" style="text-decoration: underline;">Download votes.csv</a> — 21 synthetic voting records, with column headers.
+- <a href="{{ '/assets/rada-neo4j/schema.cypher' | relative_url }}" download="schema.cypher" style="text-decoration: underline;">Download schema.cypher</a> — create the database constraints first.
+- <a href="{{ '/assets/rada-neo4j/seed.cypher' | relative_url }}" download="seed.cypher" style="text-decoration: underline;">Download seed.cypher</a> — populate the complete synthetic graph, including the votes.
+- <a href="{{ '/assets/rada-neo4j/import-votes.cypher' | relative_url }}" download="import-votes.cypher" style="text-decoration: underline;">Download import-votes.cypher</a> — import the CSV after creating the graph's entities and validating the rows.
+- <a href="{{ '/assets/rada-neo4j/analytics.cypher' | relative_url }}" download="analytics.cypher" style="text-decoration: underline;">Download analytics.cypher</a> — run the four voting-analysis queries.
+
+`votes.csv` is the supplied CSV dataset. The other CSV filenames discussed later describe suggested production inputs; they are not additional downloads.
+
 ## Contents
 
-1. [Choose the unit of truth](#choose-the-unit-of-truth)
-2. [Model identities and changing relationships](#model-identities-and-changing-relationships)
-3. [Create the schema](#create-the-schema)
-4. [Populate a reproducible graph](#populate-a-reproducible-graph)
-5. [Import a larger dataset](#import-a-larger-dataset)
-6. [Query voting patterns](#query-voting-patterns)
-7. [Check the graph before interpreting it](#check-the-graph-before-interpreting-it)
-8. [Build a source-backed ingestion pipeline](#build-a-source-backed-ingestion-pipeline)
+1. [Downloadable files](#downloadable-files)
+2. [Choose the unit of truth](#choose-the-unit-of-truth)
+3. [Model identities and changing relationships](#model-identities-and-changing-relationships)
+4. [Create the schema](#create-the-schema)
+5. [Populate a reproducible graph](#populate-a-reproducible-graph)
+6. [Import a larger dataset](#import-a-larger-dataset)
+7. [Query voting patterns](#query-voting-patterns)
+8. [Check the graph before interpreting it](#check-the-graph-before-interpreting-it)
+9. [Build a source-backed ingestion pipeline](#build-a-source-backed-ingestion-pipeline)
 
 ## Choose the unit of truth
 
@@ -139,7 +152,7 @@ Uniqueness does not require a property to exist. A writer could still create an 
 
 ## Populate a reproducible graph
 
-Download [schema.cypher](/assets/rada-neo4j/schema.cypher), [seed.cypher](/assets/rada-neo4j/seed.cypher), [analytics.cypher](/assets/rada-neo4j/analytics.cypher), [votes.csv](/assets/rada-neo4j/votes.csv), and [import-votes.cypher](/assets/rada-neo4j/import-votes.cypher). The snippets below and these files use the same model.
+Use the scripts in [Downloadable files](#downloadable-files) above. The snippets below and those files use the same model.
 
 Against a scratch database, run the schema, seed, and analytics in that order. With an authenticated local Neo4j installation, `cypher-shell` prompts for your password:
 
@@ -275,7 +288,7 @@ The roster itself is small. Repeated roll calls across many years create the lar
 
 ### Define a normalized contract
 
-The downloadable CSV is a **teaching contract**, not a claim about the official portal's field names. Its header is:
+The [votes.csv download](/assets/rada-neo4j/votes.csv) is a **teaching contract**, not a claim about the official portal's field names. Its header is:
 
 ```csv
 mp_id,session_id,decision,source_uri,observed_at
