@@ -5,7 +5,7 @@ url: /commonly_used_algorithms
 file_name: commonly_used_algorithms
 ---
 
-# Below is a curated overview of **some** of the most commonly used computer science algorithms. (It’s practically impossible to list *all* algorithms in a single blog post, so this focuses on well-known examples.) For each algorithm, you’ll find
+Below is a curated overview of **some** of the most commonly used computer science algorithms. (It’s practically impossible to list *all* algorithms in a single blog post, so this focuses on well-known examples.) For each algorithm, you’ll find
 
 1. **Brief Description**  
 2. **Potential Alternatives / Replacements**  

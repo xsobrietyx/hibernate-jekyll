@@ -56,7 +56,7 @@ complete count of everyone who accessed the site.
 - Browser GPC and an exposed DNT signal disable it.
 - A local-storage preference lasts 180 days; blocked storage means per-page
   consent. The owner can opt out with `hibernate.analytics-disabled` set to `1`.
-- Consent can be withdrawn using **Analytics settings** below the footer.
+- Consent can be withdrawn using **Analytics settings** in the footer.
   Withdrawal sets the Google disable flag, removes accessible GA cookies, and
   reloads the page to remove the loaded third-party code.
 - Query strings and fragments are removed from URLs supplied by the integration.
