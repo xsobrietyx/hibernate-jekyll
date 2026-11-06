@@ -1,0 +1,27 @@
+// Neo4j 5.26 / Cypher 5. No APOC or Enterprise-only constraints required.
+CREATE CONSTRAINT rada_mp_id IF NOT EXISTS
+FOR (m:MemberOfParliament) REQUIRE m.id IS UNIQUE;
+CREATE CONSTRAINT rada_parliament_id IF NOT EXISTS
+FOR (p:Parliament) REQUIRE p.id IS UNIQUE;
+CREATE CONSTRAINT rada_party_id IF NOT EXISTS
+FOR (p:PoliticalParty) REQUIRE p.id IS UNIQUE;
+CREATE CONSTRAINT rada_faction_id IF NOT EXISTS
+FOR (f:Faction) REQUIRE f.id IS UNIQUE;
+CREATE CONSTRAINT rada_committee_id IF NOT EXISTS
+FOR (c:ParliamentaryCommittee) REQUIRE c.id IS UNIQUE;
+CREATE CONSTRAINT rada_office_id IF NOT EXISTS
+FOR (o:ParliamentaryOffice) REQUIRE o.id IS UNIQUE;
+CREATE CONSTRAINT rada_bill_id IF NOT EXISTS
+FOR (b:Bill) REQUIRE b.id IS UNIQUE;
+CREATE CONSTRAINT rada_roll_call_id IF NOT EXISTS
+FOR (s:VotingSession) REQUIRE s.id IS UNIQUE;
+CREATE CONSTRAINT rada_vote_id IF NOT EXISTS
+FOR ()-[v:VOTED]-() REQUIRE v.id IS UNIQUE;
+CREATE CONSTRAINT rada_faction_membership_id IF NOT EXISTS
+FOR ()-[r:MEMBER_OF_FACTION]-() REQUIRE r.id IS UNIQUE;
+CREATE CONSTRAINT rada_mandate_id IF NOT EXISTS
+FOR ()-[r:HOLDS_MANDATE]-() REQUIRE r.id IS UNIQUE;
+CREATE CONSTRAINT rada_committee_membership_id IF NOT EXISTS
+FOR ()-[r:SERVES_ON_COMMITTEE]-() REQUIRE r.id IS UNIQUE;
+CREATE CONSTRAINT rada_office_tenure_id IF NOT EXISTS
+FOR ()-[r:HOLDS_OFFICE]-() REQUIRE r.id IS UNIQUE;
