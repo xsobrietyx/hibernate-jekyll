@@ -36,6 +36,10 @@ plugins:
   - jekyll-remote-theme
   - jekyll-feed
 
+# Theme assets are supplied by the active theme; do not publish its source tree.
+exclude:
+  - themes
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -58,6 +62,13 @@ plugins:
 
 # Custom settings
 future: false
+
+# Public Measurement ID for the blog's GA4 web stream.
+# Scripts render only in production and load Google only after visitor opt-in.
+analytics:
+  ga4_measurement_id: "G-52ZPCZT6PK"
+  domains: "www.hibernate.ninja,hibernate.ninja"
+  debug: false
 
 # Permalinks
 
